@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var head;
+    class Node {
+		constructor(ele) {
+			this.data = ele;
+			this.next = null;
+		}
+	}
+	function reverse(node) {
+	var prev = null;
+	var curr = node;
+	var next = null;
+		while (curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		node = prev;
+		return node;
+	}
+	function printList(node) {
+		while (node != null) {
+			document.write(node.data + " ");
+			node = node.next;
+		}
+	}
+		head = new Node(2);
+		head.next = new Node(3);
+		head.next.next = new Node(9);
+		head.next.next.next = new Node(23);
+
+		document.write("Given linked list<br/>");
+		printList(head);
+		head = reverse(head);
+		document.write("<br/>");
+		document.write("Reversed linked list<br/> ");
+		printList(head);
+    </script>
+</body>
+</html>
